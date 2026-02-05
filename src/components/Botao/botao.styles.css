@@ -1,0 +1,10 @@
+.botaoForm {
+  background-color: #17d9b1;
+  border-radius: 8px;
+  font-weight: 400;
+  display: flex;
+  justify-content: column;
+  font-size: 16px;
+  margin: 32px auto;
+  padding: 8px 16px;
+}
