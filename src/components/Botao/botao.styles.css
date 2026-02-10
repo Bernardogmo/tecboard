@@ -1,10 +1,16 @@
 .botaoForm {
   background-color: #17d9b1;
+  color: #212121;
   border-radius: 8px;
-  font-weight: 400;
-  display: flex;
-  justify-content: column;
+  border: none;
+  font-weight: 600;
   font-size: 16px;
+  line-height: 120%;
   margin: 32px auto;
   padding: 8px 16px;
+}
+
+.botaoForm:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }

@@ -3,6 +3,7 @@ import { CampoForm } from "../CampoForm";
 import { LabelForm } from "../LabelForm";
 import { InputForm } from "../InputForm";
 import { BotaoForm } from "../Botao";
+import { SelectForm } from "../Select";
 import "./form-evento.styles.css";
 
 export function FormDeEvento() {
@@ -28,9 +29,13 @@ export function FormDeEvento() {
             placeholder="XX/XX/XXXX"
           />
         </CampoForm>
+        <CampoForm>
+          <LabelForm htmlFor="temaEvento">Tema do evento</LabelForm>
+          <SelectForm />
+        </CampoForm>
       </div>
       <div className="botao">
-        <BotaoForm />
+        <BotaoForm>Criar evento</BotaoForm>
       </div>
     </form>
   );

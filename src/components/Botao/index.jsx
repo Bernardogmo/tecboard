@@ -1,5 +1,5 @@
 import "./botao.styles.css";
 
-export function BotaoForm() {
-  return <button className="botaoForm">Criar evento</button>;
+export function BotaoForm({ children }) {
+  return <button className="botaoForm">{children}</button>;
 }
