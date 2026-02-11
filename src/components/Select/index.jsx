@@ -6,9 +6,6 @@ export function SelectForm() {
       <option value="" className="optionSelect">
         Selecione o tema do evento
       </option>
-      <option value="ia" className="optionSelect">
-        IA
-      </option>
       <option value="frontend" className="optionSelect">
         Front-end
       </option>
@@ -17,6 +14,9 @@ export function SelectForm() {
       </option>
       <option value="devops" className="optionSelect">
         Devops
+      </option>
+      <option value="ia" className="optionSelect">
+        Inteligencia Artificial
       </option>
       <option value="dataScience" className="optionSelect">
         Data Science
