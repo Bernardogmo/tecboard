@@ -1,53 +1,16 @@
 import "./select.styles.css";
 
-export function SelectForm() {
+export function SelectForm({ itens, ...rest }) {
   return (
-    <select className="selectForm">
-      <option value="" className="optionSelect">
-        Selecione o tema do evento
+    <select {...rest} className="selectForm" defaultValue="">
+      <option className="optionSelect" value="" disabled>
+        Selecione um opção
       </option>
-      <option value="frontend" className="optionSelect">
-        Front-end
-      </option>
-      <option value="backend" className="optionSelect">
-        Backend
-      </option>
-      <option value="devops" className="optionSelect">
-        Devops
-      </option>
-      <option value="ia" className="optionSelect">
-        Inteligencia Artificial
-      </option>
-      <option value="dataScience" className="optionSelect">
-        Data Science
-      </option>
-      <option value="cloud" className="optionSelect">
-        Cloud
-      </option>
+      {itens.map((item) => (
+        <option key={item.id} value={item.id} className="optionSelect">
+          {item.nome}
+        </option>
+      ))}
     </select>
   );
 }
-// const options = [
-//   { value: "", label: "" },
-//   { value: "ia", label: "IA" },
-//   { value: "frontend", label: "Front-end" },
-//   { value: "backend", label: "Backend" },
-//   { value: "devops", label: "Devops" },
-//   { value: "dataScience", label: "Data Science" },
-//   { value: "cloud", label: "Cloud" },
-// ];
-// export function SelectForm() {
-//   return (
-//     <select className="selectForm">
-//       {options.map((option) => (
-//         <option
-//           key={option.value}
-//           value={option.value}
-//           className="optionSelect"
-//         >
-//           {option.label}
-//         </option>
-//       ))}
-//     </select>
-//   );
-// }

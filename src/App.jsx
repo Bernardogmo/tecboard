@@ -10,7 +10,7 @@ function App() {
     { id: 1, nome: "front-end" },
     { id: 2, nome: "back-end" },
     { id: 3, nome: "devops" },
-    { id: 4, nome: "inteligencia artificial" },
+    { id: 4, nome: "inteligência artificial" },
     { id: 5, nome: "data science" },
     { id: 6, nome: "cloud" },
   ];
@@ -32,31 +32,13 @@ function App() {
         <img src="/logo.png" alt="" />
       </header>
       <Banner />
-      <FormDeEvento />
+      <FormDeEvento temas={temas} />
       {temas.map((tema) => (
         <section key={tema.id}>
           <Tema temas={tema} />
           <CardEvento evento={evento[0]} />
         </section>
       ))}
-      {/* <section>
-        <Tema temas={temas[0]} />
-      </section>
-      <section>
-        <Tema temas={temas[1]} />
-      </section>
-      <section>
-        <Tema temas={temas[2]} />
-      </section>
-      <section>
-        <Tema temas={temas[3]} />
-      </section>
-      <section>
-        <Tema temas={temas[4]} />
-      </section>
-      <section>
-        <Tema temas={temas[5]} />
-      </section> */}
     </main>
   );
 }

@@ -7,7 +7,7 @@ export function CardEvento({ evento }) {
       <div className="corpo">
         <p className="tag">{evento.tema.nome}</p>
         <p className="data">{evento.data.toLocaleDateString("pt-BR")}</p>
-        <h3 className="titulo">{evento.titulo}</h3>
+        <h4 className="titulo">{evento.titulo}</h4>
         <p className="descricao">{evento.descricao}</p>
       </div>
     </div>
