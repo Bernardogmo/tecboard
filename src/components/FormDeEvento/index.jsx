@@ -5,7 +5,7 @@ import { InputForm } from "../InputForm";
 import { BotaoForm } from "../Botao";
 import { SelectForm } from "../Select";
 import "./form-evento.styles.css";
-export function FormDeEvento({ temas }) {
+export function FormDeEvento({ temas, onSubmit }) {
   function handleSubmit(formData) {
     console.log("Ta na hora de criar um novo evento!", formData);
     const novoEvento = {
@@ -16,7 +16,7 @@ export function FormDeEvento({ temas }) {
       data: new Date(formData.get("dataEvento")),
       titulo: formData.get("tituloEvento"),
     };
-    console.log(novoEvento);
+    onSubmit(novoEvento);
   }
   return (
     <form className="form-evento" action={handleSubmit}>
