@@ -39,16 +39,23 @@ function App() {
       <Banner />
       <FormDeEvento temas={temas} onSubmit={addEvento} />
       <section className="conteiner">
-        {temas.map((tema) => (
-          <section key={tema.id}>
-            <Tema temas={tema} />
-            <div className="eventos">
-              {eventos.map((eventos, index) => (
-                <CardEvento evento={eventos} key={index} />
-              ))}
-            </div>
-          </section>
-        ))}
+        {temas.map((tema) => {
+          if (eventos.some((evento) => evento.tema.id === tema.id)) {
+            return (
+              <section key={tema.id}>
+                <Tema temas={tema} />
+                <div className="eventos">
+                  {eventos
+                    .filter((evento) => evento.tema.id === tema.id)
+                    .map((eventos, index) => (
+                      <CardEvento evento={eventos} key={index} />
+                    ))}
+                </div>
+              </section>
+            );
+          }
+          return null;
+        })}
       </section>
     </main>
   );
