@@ -3,7 +3,7 @@ import { Banner } from "./components/Banner";
 import { FormDeEvento } from "./components/FormDeEvento";
 import { Tema } from "./components/Tema";
 import { CardEvento } from "./components/CardEvento";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 //no react, componentes são
 
 function App() {
@@ -16,16 +16,33 @@ function App() {
     { id: 6, nome: "cloud" },
   ];
 
-  const [eventos, setEventos] = useState([
-    {
-      capa: "https://raw.githubusercontent.com/viniciosneves/tecboard-assets/refs/heads/main/imagem_1.png",
-      tema: temas[0],
-      data: new Date(),
-      titulo: "Mulheres no Front",
-      descricao:
-        "Valorizando e impulsionando a participação feminina no desenvolvimento front-end.",
-    },
-  ]);
+  const [eventos, setEventos] = useState(() => {
+    const eventosArmazenados = localStorage.getItem("eventos");
+    if (eventosArmazenados) {
+      const eventos = JSON.parse(eventosArmazenados);
+      // Reconecta os temas e converte datas
+      return eventos.map((evento) => ({
+        ...evento,
+        data: new Date(evento.data),
+        tema: temas.find((t) => t.id === evento.tema.id) || evento.tema,
+      }));
+    }
+    return [
+      {
+        capa: "https://raw.githubusercontent.com/viniciosneves/tecboard-assets/refs/heads/main/imagem_1.png",
+        tema: temas[0],
+        data: new Date(),
+        titulo: "Mulheres no Front",
+        descricao:
+          "Valorizando e impulsionando a participação feminina no desenvolvimento front-end.",
+      },
+    ];
+  });
+
+  // Salva os eventos no localStorage sempre que mudam
+  useEffect(() => {
+    localStorage.setItem("eventos", JSON.stringify(eventos));
+  }, [eventos]);
 
   function addEvento(evento) {
     setEventos([...eventos, evento]);
